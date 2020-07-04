@@ -129,7 +129,7 @@ print(isValidSubsequence1([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, 10])) #True
 
 
 
-
+#
 # def fib(n):
 #     result = [0,1]
 #     for i in range(2, n):
@@ -140,12 +140,12 @@ print(isValidSubsequence1([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, 10])) #True
 #         print(len(result))
 #     return result[n+1]
 # print(fib(5))
-#
-# def fibRec(n):
-#     if n <= 2:
-#         return n
-#     return fibRec(n-1) + fibRec(n-2)
-# print(fibRec(5))
+
+def fibRec(n):
+    if n <= 2:
+        return n
+    return fibRec(n-1) + fibRec(n-2)
+print(fibRec(5))
 
 
 
@@ -167,12 +167,25 @@ def fib(n):
     fib_cache[n] = value
     return value
 
-for n in range(1,1001):
+for n in range(1,11):
     print(n, ":", fib(n))
 
 
 
 
-from functools import lru_cache
+# from functools import lru_cache
+#
+# @lru_cache(maxsize=1000)
+# def fib1(n):
+#     #check if input is a positive int
+#     if type(n) != int:
+#         raise TypeError("n must be a positive int")
+#     if n < 1:
+#         raise ValueError("n must a positive int")
+#
+#     if n <= 2:
+#         return 1
+#     return fib1(n-1) + fib1(n-2)
 
-@lru_cache(maxsize=)
+
+
