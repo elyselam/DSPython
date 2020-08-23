@@ -1,5 +1,6 @@
 #not optimal
 def insertion_swap(A):
+    #start at 1st item
     for i in range(1, len(A)):
         for j in range(i - 1, -1, -1):
             if A[j] > A[j + 1]:
@@ -28,5 +29,4 @@ A = [5,9,1,2,4,8,6,3,7]
 print(insertion_swap(A))
 
 print(insertion_shift(A))
-
 
