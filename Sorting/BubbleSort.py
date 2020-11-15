@@ -1,4 +1,6 @@
 #sorted from tail
+
+#bubble up, the largest number moves to the right
 nums = [6,4,5,3,2]
 #       0 1 2 3 4
 def bubbleSort(arr):

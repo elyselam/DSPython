@@ -31,23 +31,54 @@
 # print(insertion_shift(A))
 
 
+# def insert(arr):
+#     for i in range(1, len(arr)):
+#         curr = arr[i]
+#         j = i - 1
+#         while j >= 0:
+#             if curr < arr[j]:
+#                 #shift one spot to right
+#                 arr[j+1] = arr[j]
+#                 arr[j] = curr #shift value left into slot
+#                 i=i-1
+#             else:
+#                 break
+#
+
+
+
 def insert(arr):
     for i in range(1, len(arr)):
-        curr = arr[i]
-        j = i - 1
-        while j >= 0:
-            if curr < arr[j]:
-                #shift one spot to right
-                arr[j+1] = arr[j]
-                arr[j] = curr #shift value left into slot
-                i=i-1
-            else:
-                break
+        val_to_sort = arr[i]
+        while arr[i-1] > val_to_sort and i>0:
+            arr[i], arr[i-1] = arr[i-1], arr[i]
+            i = i - 1
+    return arr
 
 
 
+print(insert([1,5,3,6,4]))
 
 
+# CLRS:
+def insertion(arr):
+    for j in range(1, len(arr)):
+        ''' loop invariant: at the start of each iteration of loop: 
+        subarryay a[0..j-2] consists of elements originally in arr but sorted'''
 
-mean_sales = df.select(mean(df['Sales'])).alias('mean_sales').select(format_number('mean_sales',2)).collect()
-mean_sales
+        #set key to current item being moved into place
+        key = arr[j]
+        #i is item to left of j
+        i = j - 1
+
+        #within while loop, if prev_val > key, and index is not 0, then swap
+        while arr[i] > key and i > 0:
+            arr[i+1] = arr[i] #swap
+            #keep comparing to prev items until reaching last item
+            i = i - 1
+        #once while loop breaks, i = 0, so the item at index 0 is assigned value of key
+        arr[i+1] = key
+    return arr
+
+
+print(insertion([1,5,3,6,4]))
