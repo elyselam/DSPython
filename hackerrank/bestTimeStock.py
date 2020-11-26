@@ -49,4 +49,18 @@ print(max_profit([7, 1, 5, 3, 6, 4]))
 
 
 
+def max_pro(arr):
+    if not arr:
+        return 0
+    buy = arr[0]
+    prof = 0
+    for i in arr[1:]:
+        if (i - buy) > prof:
+            prof = i - buy
+        elif i < buy:
+            buy = i
+    return prof
 
+
+
+print(max_pro([7, 1, 5, 3, 6, 4]))
